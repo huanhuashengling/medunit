@@ -19,197 +19,56 @@
                 background-color: #fff;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
-                font-weight: 200;
                 height: 100vh;
                 margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
             }
         </style>
     </head>
     <body>
         <div class="container">
   <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="/docs/assets/brand/doctor.svg" alt="" width="72" height="72">
-    <h2>发热查因</h2>
+    
+    <h2><img class="d-block mx-auto mb-4" src="/docs/assets/brand/doctor.svg" alt="" width="72" height="72">发热查因</h2>
   </div>
+<div class="row">
 
-  <div class="row">
+
+    <nav>
+  <div class="nav nav-tabs nav-sm" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-basic-info-tab" data-toggle="tab" href="#nav-basic-info" role="tab" aria-controls="nav-basic-info" aria-selected="true">基本信息</a>
+    <a class="nav-item nav-link" id="nav-chief-complaint-tab" data-toggle="tab" href="#nav-chief-complaint" role="tab" aria-controls="nav-chief-complaint" aria-selected="false">主诉</a>
+    <a class="nav-item nav-link" id="nav-diagnosis-treatment-hitory-tab" data-toggle="tab" href="#nav-diagnosis-treatment-hitory" role="tab" aria-controls="nav-diagnosis-treatment-hitory" aria-selected="false">伴随症状</a>
+    <a class="nav-item nav-link" id="nav-diagnosis-treatment-hitory-tab" data-toggle="tab" href="#nav-diagnosis-treatment-hitory" role="tab" aria-controls="nav-diagnosis-treatment-hitory" aria-selected="false">诊疗经过</a>
+    <a class="nav-item nav-link" id="nav-patient-medical-history-tab" data-toggle="tab" href="#nav-patient-medical-history" role="tab" aria-controls="nav-patient-medical-history" aria-selected="false">既往史</a>
+    <a class="nav-item nav-link" id="nav-patient-history-tab" data-toggle="tab" href="#nav-patient-history" role="tab" aria-controls="nav-patient-history" aria-selected="false">个人史</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-basic-info" role="tabpanel" aria-labelledby="nav-basic-info-tab">
+    @include('fevercheck._basic_info')<!-- ['user' => $user] -->
+  </div>
+  <div class="tab-pane fade" id="nav-chief-complaint" role="tabpanel" aria-labelledby="nav-chief-complaint-tab">
+      @include('fevercheck._chief_complaint')
+  </div>
+  <div class="tab-pane fade" id="nav-accompanying-symptom" role="tabpanel" aria-labelledby="nav-diagnosis-treatment-hitory-tab">
+      @include('fevercheck._accompanying_symptom')
+  </div>
+  <div class="tab-pane fade" id="nav-diagnosis-treatment-hitory" role="tabpanel" aria-labelledby="nav-diagnosis-treatment-hitory-tab">
+      @include('fevercheck._diagnosis_treatment_hitory')
+  </div>
+  <div class="tab-pane fade" id="nav-patient-medical-history" role="tabpanel" aria-labelledby="nav-patient-medical-history-tab">
+      @include('fevercheck._patient_medical_history')
+  </div>
+  <div class="tab-pane fade" id="nav-patient-history" role="tabpanel" aria-labelledby="nav-patient-history-tab">
+      @include('fevercheck._patient_history')
+  </div>
+</div>
+
+</div>
+<!--
 
     <div class="col-md-8 order-md-1">
-      <h4 class="mb-3">基本信息</h4>
       <form class="needs-validation" novalidate="">
-        <div class="row">
-          <div class="col-md-4 col-xs-4 mb-3">
-            <label for="firstName">Med 编号</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid first name is required.
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-4 mb-3">
-            <label for="lastName">医院</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid last name is required.
-            </div>
-          </div>
-          <div class="col-md-4 col-xs-4 mb-3">
-            <label for="lastName">科室</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid last name is required.
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="firstName">床号</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid first name is required.
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="lastName">住院号</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid last name is required.
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label for="firstName">姓名</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid first name is required.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="lastName">性别</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid last name is required.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="lastName">年龄</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid last name is required.
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="firstName">入院日期</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid first name is required.
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="lastName">出院日期</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid last name is required.
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="firstName">籍贯(省、市)</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid first name is required.
-            </div>
-          </div>
-        </div>
-        <hr class="mb-4">
-
-        <h4 class="mb-3">主诉</h4>
-
-          <div class="col-md-12 mb-3">
-            <label for="firstName">主要症状</label>
-            <textarea  class="form-control" id="firstName" placeholder="" value="" required="" rows="5"></textarea>
-            <div class="invalid-feedback">
-              Valid first name is required.
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <label for="lastName">时间</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid last name is required.
-            </div>
-          </div>
-          <div class="col-md-12 mb-3">
-            <label for="lastName">特征性伴随症状</label>
-            <textarea class="form-control" id="lastName" placeholder="" value="" required="" rows="5"></textarea>
-            <div class="invalid-feedback">
-              Valid last name is required.
-            </div>
-          </div>
-
-        <div class="mb-3">
-          <label for="username">Username</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">@</span>
-            </div>
-            <input type="text" class="form-control" id="username" placeholder="Username" required="">
-            <div class="invalid-feedback" style="width: 100%;">
-              Your username is required.
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="email">Email <span class="text-muted">(Optional)</span></label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com">
-          <div class="invalid-feedback">
-            Please enter a valid email address for shipping updates.
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="address">Address</label>
-          <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
-          <div class="invalid-feedback">
-            Please enter your shipping address.
-          </div>
-        </div>
 
         <div class="mb-3">
           <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
@@ -459,15 +318,14 @@
       </form>
     </div>
   </div>
-
+-->
   <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">© 2017-2020 Company Name</p>
+    <p class="mb-1">© 2019-2020 Medunit</p>
     <ul class="list-inline">
       <li class="list-inline-item"><a href="#">Privacy</a></li>
       <li class="list-inline-item"><a href="#">Terms</a></li>
       <li class="list-inline-item"><a href="#">Support</a></li>
     </ul>
   </footer>
-</div>
     </body>
 </html>
