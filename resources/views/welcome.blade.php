@@ -85,8 +85,10 @@
                 </div>
 
                 <div class="links">
-                    <a href="/">Input</a>
-                    <a href="/">Report</a>
+                    <a href="/fevercheck">Fever Check</a>
+                    <a href="/input">OCR Input</a>
+                    <a href="/list">List</a>
+                    <a href="/report">Report</a>
                 </div>
             </div>
         </div>
