@@ -18,9 +18,7 @@ Route::get('/input', function () {
     return view('input.index');
 });
 
-Route::get('/fevercheck', function () {
-    return view('fevercheck.index');
-});
+Route::get('/fevercheck', 'FeverCheckController@index');
 
 Auth::routes();
 

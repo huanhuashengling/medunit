@@ -1,30 +1,21 @@
 <div class="mb-3">
   <div class="form-group">
-    <label for="exampleFormControlSelect1">全身症状</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>畏寒</option>
-      <option>寒战</option>
-      <option>乏力</option>
-      <option>肌肉酸痛</option>
-      <option>盗汗</option>
-      <option>水肿</option>
-      <option>体重减轻</option>
+    <label for="constitutionalSymptom">全身症状</label>
+    <select class="form-control" id="constitutionalSymptom">
+      @foreach ($constitutionalSymptoms as $key => $constitutionalSymptom)
+          <option class="form-control" value="{{$constitutionalSymptom->id}}">{{$constitutionalSymptom->constitutional_symptom_ch_label}}</option>
+        @endforeach
     </select>
   </div>
 </div>
 
 <div class="mb-3">
   <div class="form-group">
-    <label for="exampleFormControlSelect1">呼吸系统</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>闭塞</option>
-      <option>流涕</option>
-      <option>鼻腔流脓</option>
-      <option>咽疼</option>
-      <option>咳嗽</option>
-      <option>痰液性质</option>
-      <option>胸疼</option>
-      <option>呼吸困难</option>
+    <label for="respiratorySymptom">呼吸系统</label>
+    <select class="form-control" id="respiratorySymptom">
+      @foreach ($respiratorySymptoms as $key => $respiratorySymptom)
+        <option class="form-control" value="{{$respiratorySymptom->id}}">{{$respiratorySymptom->respiratory_symptom_ch_label}}</option>
+      @endforeach
     </select>
   </div>
 </div>
