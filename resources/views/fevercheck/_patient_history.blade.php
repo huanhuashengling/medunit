@@ -1,3 +1,5 @@
+
+<div class="tab-pane fade" id="nav-patient-history" role="tabpanel" aria-labelledby="nav-patient-history-tab">
 <div class="col-md-12 mb-3">
     <label for="firstName">外出旅游</label>
     <textarea  class="form-control" id="firstName" placeholder="" value="" required="" rows="2"></textarea>
@@ -42,3 +44,4 @@
       Valid first name is required.
     </div>
   </div>
+</div>

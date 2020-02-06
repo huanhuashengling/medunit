@@ -1,3 +1,4 @@
+<div class="tab-pane fade" id="nav-patient-medical-history" role="tabpanel" aria-labelledby="nav-patient-medical-history-tab">
 <div class="col-md-12 mb-3">
     <label for="firstName">诊疗经过</label>
     <textarea  class="form-control" id="firstName" placeholder="" value="" required="" rows="5"></textarea>
@@ -35,3 +36,4 @@
       Valid first name is required.
     </div>
   </div>
+</div>

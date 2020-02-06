@@ -2,16 +2,24 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Medunit</title>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="/js/Moment.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="/js/input/input.js?v={{rand()}}"></script>
     <!-- Styles -->
     <style>
@@ -19,54 +27,44 @@
         background-color: #fff;
         color: #636b6f;
         font-family: 'Nunito', sans-serif;
+        font-size: 12px;
         height: 100vh;
         margin: 0;
+      }
+      .nav-link {
+        padding-top: 0.5rem;
+        padding-right: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0.5rem;
+      }
+      .container {
+        max-width: 786px;
       }
     </style>
   </head>
   <body>
     <div class="container">
+      <input type="hidden" id="url" name="" value="{{$url}}">
       <div class="py-5 text-center">
         <h2><img class="d-block mx-auto mb-4" src="/docs/assets/brand/doctor.svg" alt="" width="72" height="72">发热查因</h2>
       </div>
-      <div class="row">
-        <nav>
-          <div class="nav nav-tabs nav-sm" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-basic-info-tab" data-toggle="tab" href="#nav-basic-info" role="tab" aria-controls="nav-basic-info" aria-selected="true">基本信息</a>
-            <a class="nav-item nav-link" id="nav-chief-complaint-tab" data-toggle="tab" href="#nav-chief-complaint" role="tab" aria-controls="nav-chief-complaint" aria-selected="false">主诉</a>
-            <a class="nav-item nav-link" id="nav-accompanying-symptom-tab" data-toggle="tab" href="#nav-accompanying-symptom" role="tab" aria-controls="nav-accompanying-symptom" aria-selected="false">伴随症状</a>
-            <a class="nav-item nav-link" id="nav-diagnosis-treatment-hitory-tab" data-toggle="tab" href="#nav-diagnosis-treatment-hitory" role="tab" aria-controls="nav-diagnosis-treatment-hitory" aria-selected="false">诊疗经过</a>
-            <a class="nav-item nav-link" id="nav-patient-medical-history-tab" data-toggle="tab" href="#nav-patient-medical-history" role="tab" aria-controls="nav-patient-medical-history" aria-selected="false">既往史</a>
-            <a class="nav-item nav-link" id="nav-patient-history-tab" data-toggle="tab" href="#nav-patient-history" role="tab" aria-controls="nav-patient-history" aria-selected="false">个人史</a>
-          </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="nav-basic-info" role="tabpanel" aria-labelledby="nav-basic-info-tab">
-            @include('fevercheck._basic_info')<!-- ['user' => $user] -->
-          </div>
-          <div class="tab-pane fade" id="nav-chief-complaint" role="tabpanel" aria-labelledby="nav-chief-complaint-tab">
-              @include('fevercheck._chief_complaint', 
-              ['feverTypes' => $feverTypes, 
-              'feverDegrees' => $feverDegrees])
-          </div>
-          <div class="tab-pane fade" id="nav-accompanying-symptom" role="tabpanel" aria-labelledby="nav-accompanying-symptom-tab">
-              @include('fevercheck._accompanying_symptom', 
-              ['circulatorySymptoms' => $circulatorySymptoms, 
-              'constitutionalSymptoms' => $constitutionalSymptoms,
-              'respiratorySymptoms' => $respiratorySymptoms,
-              'digestiveSymptoms' => $digestiveSymptoms,
-              ])
-          </div>
-          <div class="tab-pane fade" id="nav-diagnosis-treatment-hitory" role="tabpanel" aria-labelledby="nav-diagnosis-treatment-hitory-tab">
-              @include('fevercheck._diagnosis_treatment_hitory')
-          </div>
-          <div class="tab-pane fade" id="nav-patient-medical-history" role="tabpanel" aria-labelledby="nav-patient-medical-history-tab">
-              @include('fevercheck._patient_medical_history')
-          </div>
-          <div class="tab-pane fade" id="nav-patient-history" role="tabpanel" aria-labelledby="nav-patient-history-tab">
-              @include('fevercheck._patient_history')
-          </div>
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link" id="nav-basic-info-tab" data-toggle="tab" href="#nav-basic-info" role="tab" aria-controls="nav-basic-info" aria-selected="true">基本信息</a>
+          <a class="nav-item nav-link" id="nav-chief-complaint-tab" data-toggle="tab" href="#nav-chief-complaint" role="tab" aria-controls="nav-chief-complaint" aria-selected="false">主诉</a>
+          <a class="nav-item nav-link" id="nav-accompanying-symptom-tab" data-toggle="tab" href="#nav-accompanying-symptom" role="tab" aria-controls="nav-accompanying-symptom" aria-selected="false">伴随症状</a>
+          <a class="nav-item nav-link" id="nav-diagnosis-treatment-hitory-tab" data-toggle="tab" href="#nav-diagnosis-treatment-hitory" role="tab" aria-controls="nav-diagnosis-treatment-hitory" aria-selected="false">诊疗经过</a>
+          <a class="nav-item nav-link" id="nav-patient-medical-history-tab" data-toggle="tab" href="#nav-patient-medical-history" role="tab" aria-controls="nav-patient-medical-history" aria-selected="false">既往史</a>
+          <a class="nav-item nav-link" id="nav-patient-history-tab" data-toggle="tab" href="#nav-patient-history" role="tab" aria-controls="nav-patient-history" aria-selected="false">个人史</a>
         </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+          @include('fevercheck._basic_info')
+          @include('fevercheck._chief_complaint')
+          @include('fevercheck._accompanying_symptom')
+          @include('fevercheck._diagnosis_treatment_hitory')
+          @include('fevercheck._patient_medical_history')
+          @include('fevercheck._patient_history')
       </div>
 <!--
 
