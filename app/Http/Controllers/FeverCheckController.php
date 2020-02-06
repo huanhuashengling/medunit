@@ -11,17 +11,13 @@ use App\Models\ConstitutionalSymptom;
 use App\Models\DigestiveSymptom;
 use App\Models\ErythraType;
 use App\Models\FeverDegree;
-use App\Models\Models;
-use App\Models\AbdominalPainLocation;
-use App\Models\AbdominalPainLocation;
-use App\Models\AbdominalPainLocation;
-use App\Models\AbdominalPainLocation;
-use App\Models\AbdominalPainLocation;
-use App\Models\AbdominalPainLocation;
-use App\Models\AbdominalPainLocation;
-use App\Models\AbdominalPainLocation;
-use App\Models\AbdominalPainLocation;
-use App\Models\AbdominalPainLocation;
+use App\Models\FeverType;
+use App\Models\NervousSystem;
+use App\Models\RespiratorySymptom;
+use App\Models\SkinSoftTissue;
+use App\Models\StoolType;
+use App\Models\UrogenitalSymptiom;
+use App\Models\HeadacheType;
 
 class FeverCheckController extends Controller
 {
@@ -40,6 +36,7 @@ class FeverCheckController extends Controller
     $abdominalPainLocations = AbdominalPainLocation::all();
     $abdominalPainTypes = AbdominalPainType::all();
     $stoolTypes = StoolType::all();
+    $headacheTypes = HeadacheType::all();
     $url = URL::full();
     return view('fevercheck.index', 
       compact("feverTypes", 
@@ -55,6 +52,7 @@ class FeverCheckController extends Controller
         "abdominalPainLocations",
         "abdominalPainTypes",
         "stoolTypes",
+        "headacheTypes",
         "url",
       ));
   }
