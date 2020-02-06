@@ -4,16 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use URL;
-use App\FeverType;
-use App\FeverDegree;
-use App\CirculatorySymptom;
-use App\ConstitutionalSymptom;
-use App\RespiratorySymptom;
-use App\DigestiveSymptom;
-use App\UrogenitalSymptiom;
-use App\SkinSoftTissue;
-use App\ErythraType;
-use App\NervousSystem;
+use App\Models\AbdominalPainLocation;
+use App\Models\AbdominalPainType;
+use App\Models\CirculatorySymptom;
+use App\Models\ConstitutionalSymptom;
+use App\Models\DigestiveSymptom;
+use App\Models\ErythraType;
+use App\Models\FeverDegree;
+use App\Models\Models;
+use App\Models\AbdominalPainLocation;
+use App\Models\AbdominalPainLocation;
+use App\Models\AbdominalPainLocation;
+use App\Models\AbdominalPainLocation;
+use App\Models\AbdominalPainLocation;
+use App\Models\AbdominalPainLocation;
+use App\Models\AbdominalPainLocation;
+use App\Models\AbdominalPainLocation;
+use App\Models\AbdominalPainLocation;
+use App\Models\AbdominalPainLocation;
 
 class FeverCheckController extends Controller
 {
@@ -29,6 +37,9 @@ class FeverCheckController extends Controller
     $skinSoftTissues = SkinSoftTissue::all();
     $erythraTypes = ErythraType::all();
     $nervousSystems = NervousSystem::all();
+    $abdominalPainLocations = AbdominalPainLocation::all();
+    $abdominalPainTypes = AbdominalPainType::all();
+    $stoolTypes = StoolType::all();
     $url = URL::full();
     return view('fevercheck.index', 
       compact("feverTypes", 
@@ -41,6 +52,9 @@ class FeverCheckController extends Controller
         "skinSoftTissues",
         "erythraTypes",
         "nervousSystems",
+        "abdominalPainLocations",
+        "abdominalPainTypes",
+        "stoolTypes",
         "url",
       ));
   }

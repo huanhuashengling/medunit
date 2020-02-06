@@ -19,4 +19,8 @@ $(document).ready(function() {
     $('#outAdmissionDate').datetimepicker({
     	format: 'L'
     });
+
+    $('#ccTime').datetimepicker({
+    	format: 'L'
+    });
 });
