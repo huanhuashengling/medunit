@@ -64,7 +64,7 @@
       <label for="abdominalPainLocation" class="col">腹痛部位</label>
       <div class="btn-group" role="group" data-toggle="button" aria-label="Basic example">
       @foreach ($abdominalPainLocations as $key => $abdominalPainLocation)
-      <button type="button" class="btn btn-outline-info" style="padding: 5px;" id="abdominalPainLocation{{$key}}" checked value="{{$abdominalPainLocation->id}}">{{$abdominalPainLocation->abdominal_pain_location_ch_label}}</button>
+      <button type="button" class="btn btn-outline-info abdominal-pain-location" style="padding: 5px;" id="abdominalPainLocation{{$key}}" checked value="{{$abdominalPainLocation->id}}">{{$abdominalPainLocation->abdominal_pain_location_ch_label}}</button>
       @endforeach
       </div>
     </div>
@@ -75,7 +75,7 @@
       <label for="abdominalPainType" class="col">腹痛性质</label>
       <div class="btn-group" role="group" data-toggle="button" aria-label="Basic example">
       @foreach ($abdominalPainTypes as $key => $abdominalPainType)
-      <button type="button" class="btn btn-outline-info" id="abdominalPainType{{$key}}" checked value="{{$abdominalPainType->id}}">{{$abdominalPainType->abdominal_pain_type_ch_label}}</button>
+      <button type="button" class="btn btn-outline-info abdominal-pain-type" id="abdominalPainType{{$key}}" checked value="{{$abdominalPainType->id}}">{{$abdominalPainType->abdominal_pain_type_ch_label}}</button>
       @endforeach
       </div>
     </div>
@@ -92,7 +92,7 @@
       <label for="stoolType">大便性状</label>
       <div class="btn-group" role="group" data-toggle="button" aria-label="Basic example">
       @foreach ($stoolTypes as $key => $stoolType)
-      <button type="button" class="btn btn-outline-info" id="stoolType{{$key}}" checked value="{{$stoolType->id}}">{{$stoolType->stool_type_ch_label}}</button>
+      <button type="button" class="btn btn-outline-info stool-type" id="stoolType{{$key}}" checked value="{{$stoolType->id}}">{{$stoolType->stool_type_ch_label}}</button>
       @endforeach
       </div>
     </div>
@@ -140,7 +140,7 @@
       <label for="erythraType">皮疹类型</label>
       <div class="btn-group" role="group" data-toggle="button" aria-label="Basic example">
       @foreach ($erythraTypes as $key => $erythraType)
-        <button type="button" class="btn btn-outline-info" id="erythraType{{$key}}" checked value="{{$erythraType->id}}">{{$erythraType->erythra_type_ch_label}}</button>
+        <button type="button" class="btn btn-outline-info erythra-type" id="erythraType{{$key}}" checked value="{{$erythraType->id}}">{{$erythraType->erythra_type_ch_label}}</button>
       @endforeach
     </div>
     </div>
@@ -169,7 +169,7 @@
       <label for="headacheType">性质</label>
       <div class="btn-group" role="group" data-toggle="button" aria-label="Basic example">
       @foreach ($headacheTypes as $key => $headacheType)
-      <button type="button" class="btn btn-outline-info" style="padding: 5px;" id="headacheType{{$key}}" checked value="{{$headacheType->id}}">{{$headacheType->headache_type_ch_label}}</button>
+      <button type="button" class="btn btn-outline-info headache-type" style="padding: 5px;" id="headacheType{{$key}}" checked value="{{$headacheType->id}}">{{$headacheType->headache_type_ch_label}}</button>
       @endforeach
       </div>
     </div>
