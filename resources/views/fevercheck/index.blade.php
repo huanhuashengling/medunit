@@ -38,7 +38,7 @@
       .container {
         max-width: 786px;
       }
-      .btn:active {background : red}
+      
     </style>
   </head>
   <body>

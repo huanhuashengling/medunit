@@ -53,6 +53,7 @@
       <div class="form-group">
         <label for="feverDegree">热度</label>
         <select class="form-control" id="feverDegree">
+          <option class="form-control" value="">请选择</option>
           @foreach ($feverDegrees as $key => $feverDegree)
             <option class="form-control" value="{{$feverDegree->id}}">{{$feverDegree->fever_degree_ch_label}} ({{$feverDegree->fever_degree_desc}})</option>
           @endforeach
@@ -65,6 +66,7 @@
       <div class="form-group">
         <label for="feverType">热型</label>
         <select class="form-control" id="feverType">
+          <option class="form-control" value="">请选择</option>
           @foreach ($feverTypes as $key => $feverType)
             <option class="form-control" value="{{$feverType->id}}">{{$feverType->fever_ch_label}}  ({{$feverType->fever_desc}})</option>
           @endforeach

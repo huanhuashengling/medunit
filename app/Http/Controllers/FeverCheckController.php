@@ -18,6 +18,7 @@ use App\Models\SkinSoftTissue;
 use App\Models\StoolType;
 use App\Models\UrogenitalSymptiom;
 use App\Models\HeadacheType;
+use App\Models\UrineOutput;
 
 class FeverCheckController extends Controller
 {
@@ -37,6 +38,7 @@ class FeverCheckController extends Controller
     $abdominalPainTypes = AbdominalPainType::all();
     $stoolTypes = StoolType::all();
     $headacheTypes = HeadacheType::all();
+    $urineOutputs = UrineOutput::all();
     $url = URL::full();
     return view('fevercheck.index', 
       compact("feverTypes", 
@@ -53,6 +55,7 @@ class FeverCheckController extends Controller
         "abdominalPainTypes",
         "stoolTypes",
         "headacheTypes",
+        "urineOutputs",
         "url",
       ));
   }
