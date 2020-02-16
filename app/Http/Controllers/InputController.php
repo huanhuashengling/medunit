@@ -18,7 +18,8 @@ class InputController extends Controller
       // $image = str_replace('data:image/png;base64,', '', $image);
       // $image = str_replace(' ', '+', $image);
       // $imageName = str_random(10).'.'.'png';  216.58.200.234  www.googleapis.com 
-      $base64image = base64_encode(file_get_contents($request->file('image')));
+      // dd($request->file('image')->getRealPath());
+      $base64image = base64_encode(file_get_contents($request->file('image')->getRealPath()));
       // \File::put(storage_path(). '/' . $imageName, base64_decode($image));
 
 
