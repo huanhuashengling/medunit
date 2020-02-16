@@ -13,12 +13,12 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/Moment.js"></script>
-<script src="/js/popper.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/tempusdominus-bootstrap-4.min.js"></script>
-<script src="/js/input/input.js?v={{rand()}}"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/Moment.js"></script>
+  <script src="/js/popper.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="/js/input/input.js?v={{rand()}}"></script>
     <!-- Styles -->
     <style>
       html, body {
@@ -49,7 +49,7 @@
       </div>
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link" id="nav-basic-info-tab" data-toggle="tab" href="#nav-basic-info" role="tab" aria-controls="nav-basic-info" aria-selected="true">基本信息</a>
+          <a class="nav-item nav-link active" id="nav-basic-info-tab" data-toggle="tab" href="#nav-basic-info" role="tab" aria-controls="nav-basic-info" aria-selected="true">基本信息</a>
           <a class="nav-item nav-link" id="nav-chief-complaint-tab" data-toggle="tab" href="#nav-chief-complaint" role="tab" aria-controls="nav-chief-complaint" aria-selected="false">主诉</a>
           <a class="nav-item nav-link" id="nav-accompanying-symptom-tab" data-toggle="tab" href="#nav-accompanying-symptom" role="tab" aria-controls="nav-accompanying-symptom" aria-selected="false">伴随症状</a>
           <a class="nav-item nav-link" id="nav-diagnosis-treatment-hitory-tab" data-toggle="tab" href="#nav-diagnosis-treatment-hitory" role="tab" aria-controls="nav-diagnosis-treatment-hitory" aria-selected="false">诊疗经过</a>

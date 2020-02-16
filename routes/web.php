@@ -18,8 +18,9 @@ Route::get('/input', function () {
     return view('input.index');
 });
 
-Route::get('/fevercheck', 'FeverCheckController@index');
+Route::get('fevercheck', 'FeverCheckController@index')->name("fevercheck");
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('image-upload', 'InputController@imageUploadPost')->name('image.upload.post');
