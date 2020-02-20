@@ -38,7 +38,7 @@ class InputController extends Controller
 
       $image = $vision->image(
           fopen(public_path('bgd.png'), 'r'),
-          ['TEXT_DETECTION']
+          ['WEB_DETECTION', 'TEXT_DETECTION']
       );
         
         $result = $vision->annotate($image);
