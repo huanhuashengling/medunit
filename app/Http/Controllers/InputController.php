@@ -42,7 +42,7 @@ class InputController extends Controller
       );
         
         $result = $vision->annotate($image);
-        dd($result); 
+        // dd($result); 
         $texts = $result->text();
         $web = $result->web();
         foreach($texts as $key=>$text)
@@ -67,5 +67,7 @@ class InputController extends Controller
         //print best match//
 
        $best_match = current($match_condition);
+
+       dd($best_match);
      } 
 }
