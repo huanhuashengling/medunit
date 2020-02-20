@@ -38,7 +38,7 @@ class InputController extends Controller
 
       $image = $vision->image(
           fopen(public_path('bgd.png'), 'r'),
-          ['WEB_DETECTION', 'TEXT_DETECTION']
+          ['TEXT_DETECTION']
       );
         
         $result = $vision->annotate($image);
@@ -50,24 +50,11 @@ class InputController extends Controller
             $description[]=$text->description();
         }
         // fetch text from image //
-        print_r($description[0]);
-        foreach ($web->entities() as $key=>$entity)
-        {
-            $entity_per=number_format(@$entity->info()['score'] * 100 , 2);
-            if(isset($entity->info()['description']))
-            {
-                $match_condition[$entity_per]=['Identity'=>ucfirst($entity->info()['description'])];
-            }
-            else
-            { 
-                $match_condition[$entity_per]=['Identity'=>'N/A']; 
-                
-            }
-        }
+        var_dump($description[0]);
         //print best match//
+        dd($result); 
 
-       $best_match = current($match_condition);
+       // $best_match = current($match_condition);
 
-       dd($best_match);
      } 
 }
