@@ -37,7 +37,7 @@ class InputController extends Controller
       //   ]);
 
       $image = $vision->image(
-          fopen(public_path('bgd.png'), 'r'),
+          fopen(public_path('bgd1.png'), 'r'),
           ['TEXT_DETECTION']
       );
         
