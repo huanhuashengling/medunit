@@ -19,17 +19,20 @@ class InputController extends Controller
       // $image = str_replace(' ', '+', $image);
       // $imageName = str_random(10).'.'.'png';  216.58.200.234  www.googleapis.com 
       // dd($request->file('image')->getRealPath());
-      $base64image = base64_encode(file_get_contents($request->file('image')->getRealPath()));
+      // $base64image = base64_encode(file_get_contents($request->file('image')->getRealPath()));
       // \File::put(storage_path(). '/' . $imageName, base64_decode($image));
+// $base64image = base64_encode(file_get_contents('https://media.geeksforgeeks.org/wp-content/uploads/geeksforgeeks-22.png')); 
+  
+// Encode the image string data into base64 
+// $base64image = base64_encode($img);
+      $base64image = base64_encode(file_get_contents(public_path('bgd.png')));
 
-
-
+// dd($base64image);
 
 
       $vision = new VisionClient(['keyFile' => json_decode(file_get_contents(env('GOOGLE_APPLICATION_CREDENTIALS')), true)]); 
       $image = $vision->image($base64image, 
         [
-            'WEB_DETECTION',
             'TEXT_DETECTION'
         ]);
         
