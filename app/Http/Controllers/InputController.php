@@ -25,16 +25,21 @@ class InputController extends Controller
   
 // Encode the image string data into base64 
 // $base64image = base64_encode($img);
-      $base64image = base64_encode(file_get_contents(public_path('bgd.png')));
+      // $base64image = base64_encode(file_get_contents(public_path('bgd.png')));
 
 // dd($base64image);
 
 
       $vision = new VisionClient(['keyFile' => json_decode(file_get_contents(env('GOOGLE_APPLICATION_CREDENTIALS')), true)]); 
-      $image = $vision->image($base64image, 
-        [
-            'TEXT_DETECTION'
-        ]);
+      // $image = $vision->image($base64image, 
+      //   [
+      //       'TEXT_DETECTION'
+      //   ]);
+
+      $image = $vision->image(
+          fopen(public_path('bgd.png'), 'r'),
+          ['TEXT_DETECTION']
+      );
         
         $result = $vision->annotate($image);
         dd($result); 
