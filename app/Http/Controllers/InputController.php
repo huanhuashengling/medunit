@@ -140,6 +140,8 @@ dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
               $max_x=max($symbolBBV[0]["x"],$symbolBBV[1]["x"],$symbolBBV[2]["x"],$symbolBBV[3]["x"]);
               $min_y=min($symbolBBV[0]["y"],$symbolBBV[1]["y"],$symbolBBV[2]["y"],$symbolBBV[3]["y"]);
               $max_y=max($symbolBBV[0]["y"],$symbolBBV[1]["y"],$symbolBBV[2]["y"],$symbolBBV[3]["y"]);
+              echo "input " . $x1 ." ". $y1 ." ". $x2 ." ". $y2;
+              echo "compare " . $min_x ." ". $min_y ." ". $max_x ." ". $max_y;
               if($min_x >= $x1 and $max_x <= $x2 and $min_y >= $y1 and $max_y <= $y2) {
                 $text .= $symbol["text"];
                 // var_dump($symbol);
