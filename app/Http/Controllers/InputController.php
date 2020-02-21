@@ -142,16 +142,17 @@ dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
               $max_y=max($symbolBBV[0]["y"],$symbolBBV[1]["y"],$symbolBBV[2]["y"],$symbolBBV[3]["y"]);
               if($min_x >= $x1 and $max_x <= $x2 and $min_y >= $y1 and $max_y <= $y2) {
                 $text .= $symbol["text"];
-                $symbolPDBT = $symbol["property"]["detectedBreak"]["type"];
-                if($symbolPDBT==1 or $symbolPDBT==3) {
-                  $text .=' ';
-                }
-                if($symbolPDBT==2) {
-                  $text .='\t';
-                }
-                if($symbolPDBT==5){
-                  $text .='\n';
-                }
+                var_dump($symbol);
+                // $symbolPDBT = $symbol["property"]["detectedBreak"]["type"];
+                // if($symbolPDBT==1 or $symbolPDBT==3) {
+                //   $text .=' ';
+                // }
+                // if($symbolPDBT==2) {
+                //   $text .='\t';
+                // }
+                // if($symbolPDBT==5){
+                //   $text .='\n';
+                // }
               }
             }
           }
