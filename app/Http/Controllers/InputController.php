@@ -52,7 +52,7 @@ var_dump($earlyText);
         $text = $document->text();
 
 
-        $location=$this->find_word_location($pages,'WBC')
+        $location=$this->find_word_location($pages,'WBC');
         echo "location";
 var_dump($location);
         echo "document";
@@ -62,7 +62,7 @@ var_dump($info);
 echo "text";
 var_dump($text);
 echo "pages";
-dd($pages)
+dd($pages);
 //text_within(document, location.vertices[1].x, location.vertices[1].y, 30+location.vertices[1].x+(location.vertices[1].x-location.vertices[0].x),location.vertices[2].y)
 
         foreach($texts as $key=>$text)
@@ -128,13 +128,13 @@ dd($pages)
                 $text+=$symbol->getText();
                 $symbolPDBT = $symbol->getProperty()->getDetectedBreak()->getType();
                 if($symbolPDBT==1 or $symbolPDBT==3) {
-                  $text+=' '
+                  $text+=' ';
                 }
                 if($symbolPDBT==2) {
-                  $text+='\t'
+                  $text+='\t';
                 }
                 if($symbolPDBT==5){
-                  $text+='\n'
+                  $text+='\n';
                 }
               }
             }
