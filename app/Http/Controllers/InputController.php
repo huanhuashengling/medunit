@@ -66,7 +66,7 @@ class InputController extends Controller
 //   dd($page["blocks"][0]["paragraphs"][0]["words"][0]);
 //   }
 // dd($pages);
-  $location=$this->find_word_location($pages,'2.41');
+  $location=$this->find_word_location($pages,'.41');
         echo "location";      
 var_dump($location);
 
