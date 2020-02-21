@@ -50,15 +50,17 @@ class InputController extends Controller
         $pages = $document->pages();
         $info = $document->info();
         $text = $document->text();
-
-dd($document);
+  $location=$this->find_word_location($pages,'WBC');
+        echo "location";      
+var_dump($location);
+// dd($document);
 
         // echo "document";
 // var_dump($document);
-echo "info";
-var_dump($info);
-echo "text";
-var_dump($text);
+// echo "info";
+// var_dump($info);
+// echo "text";
+// var_dump($text);
 echo "pages";
 dd($pages);
   $location=$this->find_word_location($pages,'WBC');
