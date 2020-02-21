@@ -61,14 +61,15 @@ class InputController extends Controller
 // var_dump($info);
 // echo "text";
 // var_dump($text);
-echo "pages";
-foreach($pages as $page){
-  dd($page["blocks"][0]["paragraphs"][0]["words"][0]);
-  }
-dd($pages);
+// echo "pages";
+// foreach($pages as $page){
+//   dd($page["blocks"][0]["paragraphs"][0]["words"][0]);
+//   }
+// dd($pages);
   $location=$this->find_word_location($pages,'WBC');
         echo "location";      
 var_dump($location);
+dd($pages);
 //text_within(document, location.vertices[1].x, location.vertices[1].y, 30+location.vertices[1].x+(location.vertices[1].x-location.vertices[0].x),location.vertices[2].y)
 
         foreach($texts as $key=>$text)
