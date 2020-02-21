@@ -67,11 +67,11 @@ class InputController extends Controller
 //   }
 // dd($pages);
   $location=$this->find_word_location($pages,'MONO#');
-        echo "location";      
-var_dump($location);
+//         echo "location";      
+// var_dump($location);
 
-$resultText1 = $this->text_within($pages, 314, 288, 365, 300);
-$resultText2 = $this->text_within($pages, 886, 288, 937, 300);
+$resultText1 = $this->text_within($pages, 309, 288, 365, 300);
+$resultText2 = $this->text_within($pages, 881, 288, 937, 300);
 
 echo $resultText1;
 echo "\n";
@@ -142,17 +142,19 @@ dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
               $max_y=max($symbolBBV[0]["y"],$symbolBBV[1]["y"],$symbolBBV[2]["y"],$symbolBBV[3]["y"]);
               if($min_x >= $x1 and $max_x <= $x2 and $min_y >= $y1 and $max_y <= $y2) {
                 $text .= $symbol["text"];
-                var_dump($symbol);
-                // $symbolPDBT = $symbol["property"]["detectedBreak"]["type"];
-                // if($symbolPDBT==1 or $symbolPDBT==3) {
-                //   $text .=' ';
-                // }
-                // if($symbolPDBT==2) {
-                //   $text .='\t';
-                // }
-                // if($symbolPDBT==5){
-                //   $text .='\n';
-                // }
+                // var_dump($symbol);
+                if ($symbol["property"]["detectedBreak"]["type"]) {
+                  $symbolPDBT = $symbol["property"]["detectedBreak"]["type"];
+                  if($symbolPDBT==1 or $symbolPDBT==3) {
+                    $text .=' ';
+                  }
+                  if($symbolPDBT==2) {
+                    $text .='\t';
+                  }
+                  if($symbolPDBT==5){
+                    $text .='\n';
+                  }
+                }
               }
             }
           }
