@@ -63,7 +63,7 @@ class InputController extends Controller
 // var_dump($text);
 echo "pages";
 foreach($pages as $page){
-  dd($page);
+  dd($page["blocks"][0]["paragraphs"][0]["words"][0]);
   }
 dd($pages);
   $location=$this->find_word_location($pages,'WBC');
@@ -94,7 +94,7 @@ var_dump($location);
   public function assemble_word($word)
   {
     $assembled_word="";
-    foreach($word->getSymbols() as $symbol) {
+    foreach($word["symbols"] as $symbol) {
       $assembled_word+=$symbol->getText();
     }
     return $assembled_word;
@@ -104,12 +104,12 @@ var_dump($location);
   {
     $bounding_box = [];
     foreach($pages as $page){
-      foreach($page->getBlocks() as $block) {
-        foreach($block->getParagraphs() as $paragraph) {
-          foreach($paragraph->getWords() as $word) {
+      foreach($page["blocks"] as $block) {
+        foreach($block["paragraphs"] as $paragraph) {
+          foreach($paragraph["words"] as $word) {
             $assembled_word=$this->assemble_word($word);
             if($assembled_word==$word_to_find) {
-                return $word->getBoundingBox();
+                return $word["boundingBox"];
             }
           }
         }
