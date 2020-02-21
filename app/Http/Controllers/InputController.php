@@ -62,6 +62,9 @@ class InputController extends Controller
 // echo "text";
 // var_dump($text);
 echo "pages";
+foreach($pages as $page){
+  dd($page);
+  }
 dd($pages);
   $location=$this->find_word_location($pages,'WBC');
         echo "location";      
