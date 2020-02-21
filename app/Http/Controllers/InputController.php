@@ -52,9 +52,7 @@ var_dump($earlyText);
         $text = $document->text();
 
 
-        $location=$this->find_word_location($pages,'WBC');
-        echo "location";
-var_dump($location);
+
         echo "document";
 var_dump($document);
 echo "info";
@@ -63,6 +61,9 @@ echo "text";
 var_dump($text);
 echo "pages";
 dd($pages);
+        $location=$this->find_word_location($pages,'WBC');
+        echo "location";
+var_dump($location);
 //text_within(document, location.vertices[1].x, location.vertices[1].y, 30+location.vertices[1].x+(location.vertices[1].x-location.vertices[0].x),location.vertices[2].y)
 
         foreach($texts as $key=>$text)
