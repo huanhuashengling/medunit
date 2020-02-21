@@ -85,31 +85,32 @@ dd($pages);
      //then out put 
      //
      //
-    public function assemble_word($word):
-    {
-      $assembled_word=""
-      foreach($word->getSymbols() as $symbol) {
-        $assembled_word+=$symbol->getText();
-      }
-      return $assembled_word;
+  public function assemble_word($word)
+  {
+    $assembled_word=""
+    foreach($word->getSymbols() as $symbol) {
+      $assembled_word+=$symbol->getText();
     }
-    
-    public function find_word_location($pages, $word_to_find){
-      $bounding_box = [];
-      for($pages as $page){
-        foreach($page->getBlocks() as $block) {
-          foreach($block->getParagraphs() as $paragraph) {
-            foreach($paragraph->getWords() as $word) {
-              $assembled_word=$this->assemble_word($word)
-              if($assembled_word==$word_to_find) {
-                  return $word->getBoundingBox();
-              }
+    return $assembled_word;
+  }
+  
+  public function find_word_location($pages, $word_to_find)
+  {
+    $bounding_box = [];
+    for($pages as $page){
+      foreach($page->getBlocks() as $block) {
+        foreach($block->getParagraphs() as $paragraph) {
+          foreach($paragraph->getWords() as $word) {
+            $assembled_word=$this->assemble_word($word)
+            if($assembled_word==$word_to_find) {
+                return $word->getBoundingBox();
             }
           }
         }
       }
-      return $bounding_box;
     }
+    return $bounding_box;
+  }
 
   public function text_within($pages, $x1, $y1, $x2, $y2)
   {
