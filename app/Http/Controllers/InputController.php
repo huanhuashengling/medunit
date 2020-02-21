@@ -50,9 +50,9 @@ class InputController extends Controller
         $pages = $document->pages();
         $info = $document->info();
         $text = $document->text();
-  $location=$this->find_word_location($pages,'WBC');
-        echo "location";      
-var_dump($location);
+//   $location=$this->find_word_location($pages,'WBC');
+//         echo "location";      
+// var_dump($location);
 // dd($document);
 
         // echo "document";
@@ -101,7 +101,7 @@ var_dump($location);
   {
     $bounding_box = [];
     foreach($pages as $page){
-      foreach($page[0]->getBlocks() as $block) {
+      foreach($page->getBlocks() as $block) {
         foreach($block->getParagraphs() as $paragraph) {
           foreach($paragraph->getWords() as $word) {
             $assembled_word=$this->assemble_word($word);
