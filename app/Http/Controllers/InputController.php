@@ -43,26 +43,26 @@ class InputController extends Controller
         
         $annotation = $vision->annotate($image);
         $earlyText = $annotation->text()[0]->description();
-echo "earlyText";
-var_dump($earlyText);
+// echo "earlyText";
+// var_dump($earlyText);
         // dd($result); 
         $document = $annotation->fullText();
         $pages = $document->pages();
         $info = $document->info();
         $text = $document->text();
 
+dd($document);
 
-
-        echo "document";
-var_dump($document);
+        // echo "document";
+// var_dump($document);
 echo "info";
 var_dump($info);
 echo "text";
 var_dump($text);
 echo "pages";
 dd($pages);
-        $location=$this->find_word_location($pages,'WBC');
-        echo "location";
+  $location=$this->find_word_location($pages,'WBC');
+        echo "location";      
 var_dump($location);
 //text_within(document, location.vertices[1].x, location.vertices[1].y, 30+location.vertices[1].x+(location.vertices[1].x-location.vertices[0].x),location.vertices[2].y)
 
@@ -99,7 +99,7 @@ var_dump($location);
   {
     $bounding_box = [];
     foreach($pages as $page){
-      foreach($page->getBlocks() as $block) {
+      foreach($page[0]->getBlocks() as $block) {
         foreach($block->getParagraphs() as $paragraph) {
           foreach($paragraph->getWords() as $word) {
             $assembled_word=$this->assemble_word($word);
