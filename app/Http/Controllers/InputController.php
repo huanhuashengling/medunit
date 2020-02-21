@@ -66,9 +66,16 @@ class InputController extends Controller
 //   dd($page["blocks"][0]["paragraphs"][0]["words"][0]);
 //   }
 // dd($pages);
-  $location=$this->find_word_location($pages,'结果');
+  $location=$this->find_word_location($pages,'MONO#');
         echo "location";      
 var_dump($location);
+
+$resultText1 = $this->text_within($pages, 314, 288, 365, 300);
+$resultText2 = $this->text_within($pages, 886, 288, 937, 300);
+
+echo $resultText1;
+echo "\n";
+echo $resultText2;
 dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
 //text_within(document, location.vertices[1].x, location.vertices[1].y, 30+location.vertices[1].x+(location.vertices[1].x-location.vertices[0].x),location.vertices[2].y)
 
@@ -124,18 +131,18 @@ dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
   {
     $text="";
     foreach($pages as $page) {
-      foreach($page->getBlocks() as $block) {
-        foreach($block->getParagraphs() as $paragraph) {
-          foreach($paragraph->getWords() as $word) {
-            foreach($word->getSymbols() as $symbol) {
-              $symbolBBV = $symbol->getBoundingBox()->getVertices();
-                $min_x=min($symbolBBV[0]->getX(),$symbolBBV[1]->getX(),$symbolBBV[2]->getX(),$symbolBBV[3]->getX());
-              $max_x=max($symbolBBV[0]->getX(),$symbolBBV[1]->getX(),$symbolBBV[2]->getX(),$symbolBBV[3]->getX());
-              $min_y=min($symbolBBV[0]->getY(),$symbolBBV[1]->getY(),$symbolBBV[2]->getY(),$symbolBBV[3]->getY());
-              $max_y=max($symbolBBV[0]->getY(),$symbolBBV[1]->getY(),$symbolBBV[2]->getY(),$symbolBBV[3]->getY());
+      foreach($page["blocks"] as $block) {
+        foreach($block["paragraphs"] as $paragraph) {
+          foreach($paragraph["words"] as $word) {
+            foreach($word["symbols"] as $symbol) {
+              $symbolBBV = $symbol["boundingBox"]["vertices"];
+              $min_x=min($symbolBBV[0]["x"],$symbolBBV[1]["x"],$symbolBBV[2]["x"],$symbolBBV[3]["x"]);
+              $max_x=max($symbolBBV[0]["x"],$symbolBBV[1]["x"],$symbolBBV[2]["x"],$symbolBBV[3]["x"]);
+              $min_y=min($symbolBBV[0]["y"],$symbolBBV[1]["y"],$symbolBBV[2]["y"],$symbolBBV[3]["y"]);
+              $max_y=max($symbolBBV[0]["y"],$symbolBBV[1]["y"],$symbolBBV[2]["y"],$symbolBBV[3]["y"]);
               if($min_x >= $x1 and $max_x <= $x2 and $min_y >= $y1 and $max_y <= $y2) {
-                $text+=$symbol->getText();
-                $symbolPDBT = $symbol->getProperty()->getDetectedBreak()->getType();
+                $text .= $symbol["text"];
+                $symbolPDBT = $symbol["property"]["detectedBreak"]["type"];
                 if($symbolPDBT==1 or $symbolPDBT==3) {
                   $text .=' ';
                 }
