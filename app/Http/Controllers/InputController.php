@@ -97,7 +97,7 @@ dd($pages);
   public function find_word_location($pages, $word_to_find)
   {
     $bounding_box = [];
-    for($pages as $page){
+    foreach($pages as $page){
       foreach($page->getBlocks() as $block) {
         foreach($block->getParagraphs() as $paragraph) {
           foreach($paragraph->getWords() as $word) {
