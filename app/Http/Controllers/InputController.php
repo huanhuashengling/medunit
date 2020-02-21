@@ -41,10 +41,30 @@ class InputController extends Controller
           ['TEXT_DETECTION']
       );
         
-        $result = $vision->annotate($image);
+        $annotation = $vision->annotate($image);
+        $earlyText = $annotation->text()[0]->description();
+echo "earlyText";
+var_dump($earlyText);
         // dd($result); 
-        $texts = $result->text();
-        $web = $result->web();
+        $document = $annotation->fullText();
+        $pages = $document->pages();
+        $info = $document->info();
+        $text = $document->text();
+
+
+        $location=$this->find_word_location($pages,'WBC')
+        echo "location";
+var_dump($location);
+        echo "document";
+var_dump($document);
+echo "info";
+var_dump($info);
+echo "text";
+var_dump($text);
+echo "pages";
+dd($pages)
+//text_within(document, location.vertices[1].x, location.vertices[1].y, 30+location.vertices[1].x+(location.vertices[1].x-location.vertices[0].x),location.vertices[2].y)
+
         foreach($texts as $key=>$text)
         {
             $description[]=$text->description();
@@ -57,4 +77,71 @@ class InputController extends Controller
        // $best_match = current($match_condition);
 
      } 
+
+     //TODO
+     //1. store item in database
+     //2. for loop out WBC, find the bound of "WBC"
+     //3. move the bound to right and find the text in the new bound
+     //then out put 
+     //
+     //
+    public function assemble_word($word):
+    {
+      $assembled_word=""
+      foreach($word->getSymbols() as $symbol) {
+        $assembled_word+=$symbol->getText();
+      }
+      return $assembled_word;
+    }
+    
+    public function find_word_location($pages, $word_to_find){
+      $bounding_box = [];
+      for($pages as $page){
+        foreach($page->getBlocks() as $block) {
+          foreach($block->getParagraphs() as $paragraph) {
+            foreach($paragraph->getWords() as $word) {
+              $assembled_word=$this->assemble_word($word)
+              if($assembled_word==$word_to_find) {
+                  return $word->getBoundingBox();
+              }
+            }
+          }
+        }
+      }
+      return $bounding_box;
+    }
+
+  public function text_within($pages, $x1, $y1, $x2, $y2)
+  {
+    $text=""
+    foreach($pages as $page) {
+      foreach($page->getBlocks() as $block) {
+        foreach($block->getParagraphs() as $paragraph) {
+          foreach($paragraph->getWords() as $word) {
+            foreach($word->getSymbols() as $symbol) {
+              $symbolBBV = $symbol->getBoundingBox()->getVertices();
+                $min_x=min($symbolBBV[0]->getX(),$symbolBBV[1]->getX(),$symbolBBV[2]->getX(),$symbolBBV[3]->getX());
+              $max_x=max($symbolBBV[0]->getX(),$symbolBBV[1]->getX(),$symbolBBV[2]->getX(),$symbolBBV[3]->getX());
+              $min_y=min($symbolBBV[0]->getY(),$symbolBBV[1]->getY(),$symbolBBV[2]->getY(),$symbolBBV[3]->getY());
+              $max_y=max($symbolBBV[0]->getY(),$symbolBBV[1]->getY(),$symbolBBV[2]->getY(),$symbolBBV[3]->getY());
+              if($min_x >= $x1 and $max_x <= $x2 and $min_y >= $y1 and $max_y <= $y2) {
+                $text+=$symbol->getText();
+                $symbolPDBT = $symbol->getProperty()->getDetectedBreak()->getType();
+                if($symbolPDBT==1 or $symbolPDBT==3) {
+                  $text+=' '
+                }
+                if($symbolPDBT==2) {
+                  $text+='\t'
+                }
+                if($symbolPDBT==5){
+                  $text+='\n'
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return $text;
+  }
 }
