@@ -101,7 +101,7 @@ dd($pages);
       foreach($page->getBlocks() as $block) {
         foreach($block->getParagraphs() as $paragraph) {
           foreach($paragraph->getWords() as $word) {
-            $assembled_word=$this->assemble_word($word)
+            $assembled_word=$this->assemble_word($word);
             if($assembled_word==$word_to_find) {
                 return $word->getBoundingBox();
             }
