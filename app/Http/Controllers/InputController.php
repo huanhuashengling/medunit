@@ -66,16 +66,16 @@ class InputController extends Controller
 //   dd($page["blocks"][0]["paragraphs"][0]["words"][0]);
 //   }
 // dd($pages);
-  $location=$this->find_word_location($pages,'MONO#');
-//         echo "location";      
-// var_dump($location);
+  $location=$this->find_word_location($pages,'2.41');
+        echo "location";      
+var_dump($location);
 
-$resultText1 = $this->text_within($pages, 272, 288, 370, 300);
-$resultText2 = $this->text_within($pages, 860, 288, 947, 300);
+// $resultText1 = $this->text_within($pages, 272, 288, 370, 300);
+// $resultText2 = $this->text_within($pages, 860, 288, 947, 300);
 
-echo $resultText1;
-echo "\n";
-echo $resultText2;
+// echo $resultText1;
+// echo "\n";
+// echo $resultText2;
 dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
 //text_within(document, location.vertices[1].x, location.vertices[1].y, 30+location.vertices[1].x+(location.vertices[1].x-location.vertices[0].x),location.vertices[2].y)
 
