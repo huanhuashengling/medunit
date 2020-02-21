@@ -96,7 +96,7 @@ dd($pages);
   {
     $assembled_word="";
     foreach($word["symbols"] as $symbol) {
-      $assembled_word+=$symbol["text"];
+      $assembled_word .= $symbol["text"];
     }
     return $assembled_word;
   }
@@ -136,13 +136,13 @@ dd($pages);
                 $text+=$symbol->getText();
                 $symbolPDBT = $symbol->getProperty()->getDetectedBreak()->getType();
                 if($symbolPDBT==1 or $symbolPDBT==3) {
-                  $text+=' ';
+                  $text .=' ';
                 }
                 if($symbolPDBT==2) {
-                  $text+='\t';
+                  $text .='\t';
                 }
                 if($symbolPDBT==5){
-                  $text+='\n';
+                  $text .='\n';
                 }
               }
             }
