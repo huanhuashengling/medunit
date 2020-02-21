@@ -96,7 +96,7 @@ dd($pages);
   {
     $assembled_word="";
     foreach($word["symbols"] as $symbol) {
-      $assembled_word+=$symbol->getText();
+      $assembled_word+=$symbol["text"];
     }
     return $assembled_word;
   }
