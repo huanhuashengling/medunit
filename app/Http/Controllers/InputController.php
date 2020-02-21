@@ -66,10 +66,10 @@ class InputController extends Controller
 //   dd($page["blocks"][0]["paragraphs"][0]["words"][0]);
 //   }
 // dd($pages);
-  $location=$this->find_word_location($pages,'WBC');
+  $location=$this->find_word_location($pages,'结果');
         echo "location";      
 var_dump($location);
-dd($pages);
+dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
 //text_within(document, location.vertices[1].x, location.vertices[1].y, 30+location.vertices[1].x+(location.vertices[1].x-location.vertices[0].x),location.vertices[2].y)
 
         foreach($texts as $key=>$text)
@@ -103,20 +103,21 @@ dd($pages);
   
   public function find_word_location($pages, $word_to_find)
   {
-    $bounding_box = [];
+    $bounding_boxs = [];
     foreach($pages as $page){
       foreach($page["blocks"] as $block) {
         foreach($block["paragraphs"] as $paragraph) {
           foreach($paragraph["words"] as $word) {
             $assembled_word=$this->assemble_word($word);
             if($assembled_word==$word_to_find) {
-                return $word["boundingBox"];
+                $bounding_boxs[] = $word["boundingBox"];
+                break;
             }
           }
         }
       }
     }
-    return $bounding_box;
+    return $bounding_boxs;
   }
 
   public function text_within($pages, $x1, $y1, $x2, $y2)
