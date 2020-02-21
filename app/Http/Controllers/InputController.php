@@ -87,7 +87,7 @@ dd($pages);
      //
   public function assemble_word($word)
   {
-    $assembled_word=""
+    $assembled_word="";
     foreach($word->getSymbols() as $symbol) {
       $assembled_word+=$symbol->getText();
     }
@@ -114,7 +114,7 @@ dd($pages);
 
   public function text_within($pages, $x1, $y1, $x2, $y2)
   {
-    $text=""
+    $text="";
     foreach($pages as $page) {
       foreach($page->getBlocks() as $block) {
         foreach($block->getParagraphs() as $paragraph) {
