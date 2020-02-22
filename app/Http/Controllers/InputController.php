@@ -66,7 +66,9 @@ class InputController extends Controller
 //   dd($page["blocks"][0]["paragraphs"][0]["words"][0]);
 //   }
 // dd($pages);
-  $location=$this->find_word_location($pages,'结果');
+  // $location=$this->find_word_location($pages,'2');
+  // $location=$this->find_text_location($pages,'');
+  $location=$this->find_text_location($pages,'2');
         echo "location";      
 var_dump($location);
 
@@ -115,10 +117,38 @@ dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
       foreach($page["blocks"] as $block) {
         foreach($block["paragraphs"] as $paragraph) {
           foreach($paragraph["words"] as $word) {
-            $assembled_word=$this->assemble_word($word);
-            if($assembled_word==$word_to_find) {
+            foreach($word["symbols"] as $symbol) {
+
+            // $assembled_word=$this->assemble_word($word);
+            // if($assembled_word==$word_to_find) {
+            //     $bounding_boxs[] = $word["boundingBox"];
+            //     break;
+            // }
+            }
+          }
+        }
+      }
+    }
+    return $bounding_boxs;
+  }
+
+  public function find_text_location($pages, $text_to_find)
+  {
+    $bounding_boxs = [];
+    foreach($pages as $page){
+      foreach($page["blocks"] as $block) {
+        foreach($block["paragraphs"] as $paragraph) {
+          foreach($paragraph["words"] as $word) {
+            foreach($word["symbols"] as $symbol) {
+              if ($symbol["text"] == $text_to_find) {
                 $bounding_boxs[] = $word["boundingBox"];
                 break;
+              }
+            // $assembled_word=$this->assemble_word($word);
+            // if($assembled_word==$word_to_find) {
+            //     $bounding_boxs[] = $word["boundingBox"];
+            //     break;
+            // }
             }
           }
         }
