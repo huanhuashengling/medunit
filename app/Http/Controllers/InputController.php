@@ -72,13 +72,15 @@ class InputController extends Controller
 //         echo "location";      
 // var_dump($location);
 
-// $resultText1 = $this->text_within($pages, 300, 280, 370, 310);
-$resultText1 = $this->text_within($pages, 300, 315, 370, 345);
+$resultText3 = $this->text_within($pages, 300, 280, 370, 310);
+$resultText1 = $this->text_within($pages, 300, 330, 370, 360);
 $resultText2 = $this->text_within($pages, 860, 288, 947, 300);
 
 echo $resultText1;
 echo "\n";
 echo $resultText2;
+echo "\n";
+echo $resultText3;
 dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
 //text_within(document, location.vertices[1].x, location.vertices[1].y, 30+location.vertices[1].x+(location.vertices[1].x-location.vertices[0].x),location.vertices[2].y)
 
