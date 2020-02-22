@@ -72,7 +72,7 @@ class InputController extends Controller
 //         echo "location";      
 // var_dump($location);
 
-$resultText1 = $this->text_within($pages, 319, 287, 330, 299);
+$resultText1 = $this->text_within($pages, 300, 280, 370, 310);
 // $resultText2 = $this->text_within($pages, 860, 288, 947, 300);
 
 echo $resultText1;
