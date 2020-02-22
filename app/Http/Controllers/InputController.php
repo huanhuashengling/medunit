@@ -50,6 +50,11 @@ class InputController extends Controller
         $pages = $document->pages();
         $info = $document->info();
         $text = $document->text();
+
+// $json_string = file_get_contents(public_path('test.json'));
+ 
+// 把JSON字符串转成PHP数组
+// $document = json_decode($json_string, true);
 //   $location=$this->find_word_location($pages,'WBC');
 //         echo "location";      
 // var_dump($location);
@@ -90,22 +95,13 @@ class InputController extends Controller
 
 
 
-$select = $annotation->fullText(); 
-file_put_contents(public_path('test.json'), json_encode($pages));
-// $file = fopen(public_path('test.txt'), "a"); 
-// fwrite($file, json_encode($pages)); 
-// fclose($file);
-dd($pages);
-dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
+// $select = $annotation->fullText(); 
+file_put_contents(public_path('test.json'), json_encode($document));
 
-        foreach($texts as $key=>$text)
-        {
-            $description[]=$text->description();
-        }
-        // fetch text from image //
-        var_dump($description[0]);
-        //print best match//
-        dd($result); 
+dd($pages);
+// dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
+
+
 
        // $best_match = current($match_condition);
 
