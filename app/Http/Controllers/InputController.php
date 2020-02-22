@@ -74,7 +74,7 @@ class InputController extends Controller
 
 $resultText3 = $this->text_within($pages, 300, 280, 370, 310);
 $resultText1 = $this->text_within($pages, 300, 330, 370, 360);
-$resultText2 = $this->text_within($pages, 860, 288, 947, 300);
+$resultText2 = $this->text_within($pages, 860, 280, 947, 320);
 
 echo $resultText1;
 echo "\n";
