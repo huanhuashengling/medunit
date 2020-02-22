@@ -91,9 +91,10 @@ class InputController extends Controller
 
 
 $select = $annotation->fullText(); 
-$file = fopen(public_path('test.txt'), "a"); 
-fwrite($file, json_encode($select)); 
-fclose($file);
+file_put_contents(public_path('test.json'), json_encode($pages));
+// $file = fopen(public_path('test.txt'), "a"); 
+// fwrite($file, json_encode($pages)); 
+// fclose($file);
 dd($pages);
 dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
 
