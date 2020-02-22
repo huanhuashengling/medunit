@@ -166,15 +166,15 @@ dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
           foreach($paragraph["words"] as $word) {
             foreach($word["symbols"] as $symbol) {
               $symbolBBV = $symbol["boundingBox"]["vertices"];
-              // $min_x=min($symbolBBV[0]["x"],$symbolBBV[1]["x"],$symbolBBV[2]["x"],$symbolBBV[3]["x"]);
-              // $max_x=max($symbolBBV[0]["x"],$symbolBBV[1]["x"],$symbolBBV[2]["x"],$symbolBBV[3]["x"]);
-              // $min_y=min($symbolBBV[0]["y"],$symbolBBV[1]["y"],$symbolBBV[2]["y"],$symbolBBV[3]["y"]);
-              // $max_y=max($symbolBBV[0]["y"],$symbolBBV[1]["y"],$symbolBBV[2]["y"],$symbolBBV[3]["y"]);
+              $min_x=min($symbolBBV[0]["x"],$symbolBBV[1]["x"],$symbolBBV[2]["x"],$symbolBBV[3]["x"]);
+              $max_x=max($symbolBBV[0]["x"],$symbolBBV[1]["x"],$symbolBBV[2]["x"],$symbolBBV[3]["x"]);
+              $min_y=min($symbolBBV[0]["y"],$symbolBBV[1]["y"],$symbolBBV[2]["y"],$symbolBBV[3]["y"]);
+              $max_y=max($symbolBBV[0]["y"],$symbolBBV[1]["y"],$symbolBBV[2]["y"],$symbolBBV[3]["y"]);
 
-              // if($min_x >= $x1 and $max_x <= $x2 and $min_y >= $y1 and $max_y <= $y2) {
-              if($symbolBBV[0]["x"] >= $x1 and $symbolBBV[2]["x"] <= $x2 and $symbolBBV[0]["y"] >= $y1 and $symbolBBV[2]["y"] <= $y2) {
-                echo "input " . $x1 ." ". $y1 ." ". $x2 ." ". $y2;
-              var_dump($symbolBBV);
+              if($min_x >= $x1 and $max_x <= $x2 and $min_y >= $y1 and $max_y <= $y2) {
+              // if($symbolBBV[0]["x"] >= $x1 and $symbolBBV[2]["x"] <= $x2 and $symbolBBV[0]["y"] >= $y1 and $symbolBBV[2]["y"] <= $y2) {
+                // echo "input " . $x1 ." ". $y1 ." ". $x2 ." ". $y2;
+              // var_dump($symbolBBV);
                 $text .= $symbol["text"];
                 // var_dump($symbol);
                 // if ($symbol["property"]["detectedBreak"]["type"]) {
