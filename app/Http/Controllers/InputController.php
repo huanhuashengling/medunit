@@ -96,9 +96,9 @@ class InputController extends Controller
 
 
 // $select = $annotation->fullText(); 
-file_put_contents(public_path('test.json'), json_encode($document));
+file_put_contents(public_path('test.json'), json_encode($pages));
 
-dd($pages);
+dd($earlyText);
 // dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
 
 
