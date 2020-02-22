@@ -68,14 +68,14 @@ class InputController extends Controller
 // dd($pages);
   // $location=$this->find_word_location($pages,'2');
   // $location=$this->find_text_location($pages,'');
-  $location=$this->find_text_location($pages,'2');
-        echo "location";      
-var_dump($location);
+//   $location=$this->find_text_location($pages,'2');
+//         echo "location";      
+// var_dump($location);
 
-// $resultText1 = $this->text_within($pages, 272, 288, 370, 300);
+$resultText1 = $this->text_within($pages, 319, 287, 330, 299);
 // $resultText2 = $this->text_within($pages, 860, 288, 947, 300);
 
-// echo $resultText1;
+echo $resultText1;
 // echo "\n";
 // echo $resultText2;
 dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
@@ -172,7 +172,7 @@ dd($pages[0]["blocks"][0]["paragraphs"][0]["words"][0]);
               // $max_y=max($symbolBBV[0]["y"],$symbolBBV[1]["y"],$symbolBBV[2]["y"],$symbolBBV[3]["y"]);
 
               // if($min_x >= $x1 and $max_x <= $x2 and $min_y >= $y1 and $max_y <= $y2) {
-              if($symbolBBV[0]["x"] >= $x1 and $symbolBBV[1]["x"] <= $x2 and $symbolBBV[0]["y"] >= $y1 and $symbolBBV[1]["y"] <= $y2) {
+              if($symbolBBV[0]["x"] >= $x1 and $symbolBBV[2]["x"] <= $x2 and $symbolBBV[0]["y"] >= $y1 and $symbolBBV[2]["y"] <= $y2) {
                 echo "input " . $x1 ." ". $y1 ." ". $x2 ." ". $y2;
               var_dump($symbolBBV);
                 $text .= $symbol["text"];
