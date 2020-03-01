@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Google\Cloud\Vision\VisionClient;
 
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Redirect;
 
 use App\Models\LaboratoryItem;
 use App\Models\LaboratoryLog;

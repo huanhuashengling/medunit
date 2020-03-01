@@ -20,12 +20,9 @@
             <form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data">
                 @csrf
               <div class="form-group">
-                <label for="exampleFormControlFile1">第一步：选择报告单上传</label>
+                <label for="exampleFormControlFile1">选择报告单上传</label>
                 <input type="file" class="form-control-file" name="image" id="input-zh">
               </div>
-              <div class="col-6">
-                <button type="submit" class="btn btn-success">上传</button>
-                </div>
             </form>
         </div>
     </div>
