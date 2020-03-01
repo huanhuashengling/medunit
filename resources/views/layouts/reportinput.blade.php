@@ -2,7 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -22,15 +25,24 @@
             <!-- Fonts -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/tempusdominus-bootstrap-4.min.css" />
+    <link rel="stylesheet" href="/css/fileinput.css" />
+    
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/plugins/piexif.min.js"></script>
+    <script src="/js/plugins/sortable.min.js"></script>
+    <script src="/js/plugins/purify.min.js"></script>
+    
     <script src="/js/Moment.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="/js/fileinput.js"></script>
+    
+
     <!-- Styles -->
         <style>
             html, body {
@@ -127,6 +139,14 @@
             @yield('content')
             @yield('scripts')
         </main>
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+          <p class="mb-1">© 2019-2020 Medunit</p>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+          </ul>
+        </footer>
     </div>
 </body>
 </html>

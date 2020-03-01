@@ -108,32 +108,34 @@
       @foreach ($urogenitalSymptioms as $key => $urogenitalSymptiom)
         <button type="button" class="btn btn-outline-info" id="urogenitalSymptiom{{$key}}" checked value="{{$urogenitalSymptiom->id}}">{{$urogenitalSymptiom->urogenital_symptiom_ch_label}}</button>
       @endforeach
+      </div>
     </div>
-  </div>
   </div>
 
 <div class="mb-3">
-      <div class="form-group col">
-        <label for="urineOutput">尿量</label>
-        <select class="form-control" id="urineOutput">
-          @foreach ($urineOutputs as $key => $urineOutput)
-            <option class="form-control" value="{{$urineOutput->id}}">{{$urineOutput->urine_output_ch_label}} ({{$urineOutput->urine_output_desc}})</option>
-          @endforeach
-        </select>
-      </div>
-    </div>
+  <div class="form-group col">
+    <label for="urineOutput">尿量</label>
+    <select class="form-control" id="urineOutput">
+      <option class="form-control" value="">请选择</option>
+      @foreach ($urineOutputs as $key => $urineOutput)
+        <option class="form-control" value="{{$urineOutput->id}}">{{$urineOutput->urine_output_ch_label}} ({{$urineOutput->urine_output_desc}})</option>
+      @endforeach
+    </select>
+  </div>
+</div>
 
 <hr />
-  <div class="mb-3">
-    <div class="form-group">
-      <label for="skinSoftTissue" class="col">皮肤软组织</label>
-      <div class="btn-group" role="group" data-toggle="button" aria-label="Basic example">
-      @foreach ($skinSoftTissues as $key => $skinSoftTissue)
-          <button type="button" class="btn btn-outline-info" style="padding: 5px;" id="skinSoftTissue{{$key}}" checked value="{{$skinSoftTissue->id}}">{{$skinSoftTissue->skin_soft_tissue_ch_label}}</button>
-      @endforeach
-    </div>
+<div class="mb-3">
+  <div class="form-group">
+    <label for="skinSoftTissue" class="col">皮肤软组织</label>
+    <div class="btn-group" role="group" data-toggle="button" aria-label="Basic example">
+    @foreach ($skinSoftTissues as $key => $skinSoftTissue)
+        <button type="button" class="btn btn-outline-info" style="padding: 5px;" id="skinSoftTissue{{$key}}" checked value="{{$skinSoftTissue->id}}">{{$skinSoftTissue->skin_soft_tissue_ch_label}}</button>
+    @endforeach
     </div>
   </div>
+</div>
+
 <div class="d-none" id="erythraExpand">
   <div class="mb-3" id="erythraType">
     <div class="form-group col">

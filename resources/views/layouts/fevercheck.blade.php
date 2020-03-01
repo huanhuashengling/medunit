@@ -33,42 +33,25 @@
     <script src="/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- Styles -->
         <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+      html, body {
+        background-color: #fff;
+        color: #636b6f;
+        font-family: 'Nunito', sans-serif;
+        font-size: 12px;
+        height: 100vh;
+        margin: 0;
+      }
+      .nav-link {
+        padding-top: 0.5rem;
+        padding-right: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0.5rem;
+      }
+      .container {
+        max-width: 786px;
+      }
+      
+    </style>
 </head>
 <body>
     <div id="app">
@@ -127,6 +110,14 @@
             @yield('content')
             @yield('scripts')
         </main>
+            <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">© 2019-2020 Medunit</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+      </ul>
+    </footer>
     </div>
 </body>
 </html>

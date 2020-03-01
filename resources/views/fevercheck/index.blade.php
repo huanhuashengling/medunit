@@ -1,47 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+@extends('layouts.fevercheck')
 
-    <!-- Bootstrap CSS -->
-    <title>Medunit</title>
-
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/tempusdominus-bootstrap-4.min.css" />
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/Moment.js"></script>
-  <script src="/js/popper.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/tempusdominus-bootstrap-4.min.js"></script>
-  <script src="/js/input/input.js?v={{rand()}}"></script>
-    <!-- Styles -->
-    <style>
-      html, body {
-        background-color: #fff;
-        color: #636b6f;
-        font-family: 'Nunito', sans-serif;
-        font-size: 12px;
-        height: 100vh;
-        margin: 0;
-      }
-      .nav-link {
-        padding-top: 0.5rem;
-        padding-right: 0.5rem;
-        padding-bottom: 0.5rem;
-        padding-left: 0.5rem;
-      }
-      .container {
-        max-width: 786px;
-      }
-      
-    </style>
-  </head>
-  <body>
+@section('content')
     <div class="container">
       <input type="hidden" id="url" name="" value="{{$url}}">
       <div class="py-5 text-center">
@@ -319,13 +278,9 @@
   </div>
 </div>
 -->
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-      <p class="mb-1">© 2019-2020 Medunit</p>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="#">Privacy</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Support</a></li>
-      </ul>
-    </footer>
-  </body>
-</html>
+
+@endsection
+
+@section('scripts')
+    <script src="/js/input/input.js?v={{rand()}}"></script>
+@endsection
