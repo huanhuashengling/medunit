@@ -6,7 +6,7 @@ $(document).ready(function() {
 		initialPreview: [
 			$("#posted-path").val(),
 	    ],
-	    maxFileSize: 1000,
+	    maxFileSize: 1500,
 	    initialPreviewShowDelete: false,
 	    initialPreviewAsData: true, // 特别重要
 	});
