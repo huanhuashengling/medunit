@@ -96,7 +96,11 @@ echo $barCode;
         if (isset($explodeResult[1])) {
           $laboratoryReport[$item->bind_report_item_label] = trim($explodeResult[1]);
         } else {
-          $laboratoryReport[$item->bind_report_item_label] = "";
+          if (strpos($item->bind_report_item_label, "_time")) {
+            $laboratoryReport[$item->bind_report_item_label] = "2020-03-01 06:22:36";
+          } else {
+            $laboratoryReport[$item->bind_report_item_label] = "";
+          }
         }
       }
     }
