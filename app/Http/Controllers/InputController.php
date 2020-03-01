@@ -97,7 +97,7 @@ class InputController extends Controller
           $laboratoryReport[$item->bind_report_item_label] = "";
         } else if("" == trim($explodeResult[1])) {
           if (strpos($item->bind_report_item_label, "_time")) {
-            $laboratoryReport[$item->bind_report_item_label] = "0000-00-00 00:00:00";
+            $laboratoryReport[$item->bind_report_item_label] = "2001-01-01";
           } else {
             $laboratoryReport[$item->bind_report_item_label] = "";
           }
@@ -138,7 +138,7 @@ class InputController extends Controller
     // dd($resultDatas);
       // die();
 
-    return view('input.index');
+    return Redirect::to('report-list');
   }
 
   public function valueTowards($value, $start, $end)
