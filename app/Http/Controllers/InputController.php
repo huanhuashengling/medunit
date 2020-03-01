@@ -56,7 +56,7 @@ class InputController extends Controller
     return view('input.list', compact("resultDatas"));
   }
 
-  public function readTextFromJsonData($jsonfilename = "test.json", $txtfilename = "first.txt")
+  public function readTextFromJsonData($jsonfilename = "5e5b58bf0f921.json", $txtfilename = "5e5b58bf0f921.txt")
   {
     $json_string = (Storage::disk('reports')->get($jsonfilename));
     $pages = json_decode($json_string, true);
@@ -71,12 +71,12 @@ class InputController extends Controller
                         $barCodeLocation[0]["y"] - 5,
                         $barCodeLocation[2]["x"] + 10 + $barCodeWidth,
                         $barCodeLocation[2]["y"] + 5);
-echo $barCode;
+// echo $barCode;
     $laboratoryItems = LaboratoryItem::where(["laboratory_type" => "血常规"])->get();
 
     $laboratoryCommonItems = LaboratoryCommonItem::all();
     $earlyText = (Storage::disk('reports')->get($txtfilename));
-    echo $earlyText;
+    // echo $earlyText;
     // dd($pages);
     //find laboratoryReport by barcode makesure it's unique
     $laboratoryReport = LaboratoryReport::where(["bar_code" => $barCode])->first();
@@ -93,14 +93,16 @@ echo $barCode;
       preg_match_all($preg, $earlyText, $res);
       if (isset($res[0][0])) {
         $explodeResult = explode(":", $res[0][0], 2);
-        if (isset($explodeResult[1])) {
-          $laboratoryReport[$item->bind_report_item_label] = trim($explodeResult[1]);
-        } else {
+        if (!isset($explodeResult[1])) {
+          $laboratoryReport[$item->bind_report_item_label] = "";
+        } else if("" == trim($explodeResult[1])) {
           if (strpos($item->bind_report_item_label, "_time")) {
-            $laboratoryReport[$item->bind_report_item_label] = "2020-03-01 06:22:36";
+            $laboratoryReport[$item->bind_report_item_label] = "0000-00-00 00:00:00";
           } else {
             $laboratoryReport[$item->bind_report_item_label] = "";
           }
+        } else {
+          $laboratoryReport[$item->bind_report_item_label] = trim($explodeResult[1]);
         }
       }
     }
